@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0d">
+<title>OMAR × NOURHAN — PRIVATE ARCHIVE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+:root{
+ --bg:#08090b;--panel:#111318;--panel2:#171920;--line:#2b2e36;--text:#f4f2ed;
+ --muted:#8f929c;--red:#e84949;--cream:#e8dfcf;--gold:#d9b978;--green:#79d6aa;
+}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:Cairo,system-ui,sans-serif}
+body{min-height:100vh;overflow-x:hidden}
+button,input{font:inherit}button{cursor:pointer}
+#grain{position:fixed;inset:0;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");z-index:99}
+.top{height:54px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 18px;direction:ltr;background:#0b0c0f;position:sticky;top:0;z-index:20}
+.brand{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.4px;color:#d8d9dd}
+.status{display:flex;gap:10px;align-items:center;font:11px "DM Mono";color:var(--muted)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px #79d6aa}
+.layout{max-width:1180px;margin:auto;display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 54px);direction:ltr}
+.side{border-left:1px solid var(--line);border-right:1px solid var(--line);padding:24px 15px;direction:rtl;background:#0d0e11}
+.side h3{font-size:11px;letter-spacing:2px;color:#676a73;margin:0 0 16px;font-family:"DM Mono"}
+.nav{display:flex;flex-direction:column;gap:6px}
+.nav button{background:transparent;border:1px solid transparent;color:#aeb0b8;text-align:right;padding:12px 12px;border-radius:8px;transition:.2s}
+.nav button:hover,.nav button.active{background:#17191f;border-color:#30333c;color:#fff}
+.nav button b{display:block;font-size:13px}.nav button span{font:9px "DM Mono";color:#686b74;direction:ltr;display:block;margin-top:2px}
+.side .stamp{margin-top:35px;border-top:1px solid var(--line);padding-top:18px;font:9px/1.7 "DM Mono";color:#666}
+.main{direction:rtl;padding:28px 24px 80px}
+.hero{min-height:460px;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:stretch}
+.heroText{border:1px solid var(--line);background:linear-gradient(145deg,#14161b,#0e0f12);padding:38px;border-radius:14px;position:relative;overflow:hidden}
+.heroText:after{content:"";position:absolute;width:280px;height:280px;border:1px solid #34363e;border-radius:50%;left:-120px;bottom:-150px;box-shadow:0 0 0 35px #16171c,0 0 0 36px #292b32}
+.kicker{font:10px "DM Mono";letter-spacing:2px;color:var(--gold);direction:ltr;text-align:left}
+.hero h1{font-size:clamp(38px,7vw,82px);line-height:.96;margin:36px 0 22px;letter-spacing:-2px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p{max-width:570px;color:#b6b8bf;line-height:2;font-size:14px}
+.meta{margin-top:30px;display:flex;gap:9px;flex-wrap:wrap}
+.tag{border:1px solid #33363e;padding:6px 10px;border-radius:99px;color:#aaa;font:9px "DM Mono";direction:ltr}
+.signal{border:1px solid var(--line);border-radius:14px;background:#0e0f12;padding:20px;display:flex;flex-direction:column;justify-content:space-between}
+.signalTop{display:flex;justify-content:space-between;font:9px "DM Mono";color:#70737c;direction:ltr}
+.signalCircle{width:min(270px,70vw);aspect-ratio:1;border:1px solid #3a3c44;border-radius:50%;margin:auto;display:grid;place-items:center;position:relative}
+.signalCircle:before,.signalCircle:after{content:"";position:absolute;border:1px solid #252830;border-radius:50%}
+.signalCircle:before{inset:24px}.signalCircle:after{inset:55px}
+.initials{font:500 clamp(40px,8vw,74px) "DM Mono";letter-spacing:-7px;color:var(--cream);direction:ltr}
+.signalBottom{border-top:1px solid var(--line);padding-top:14px;font:9px/1.7 "DM Mono";color:#777}
+.sectionTitle{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid var(--line);padding:70px 0 14px;margin-bottom:18px}
+.sectionTitle h2{margin:0;font-size:23px}.sectionTitle small{font:9px "DM Mono";color:#676a73;direction:ltr}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{border:1px solid var(--line);background:#111318;border-radius:11px;padding:18px;min-height:180px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:#4b4e58}
+.card .num{font:10px "DM Mono";color:#666b75;direction:ltr}
+.card h3{margin:28px 0 7px;font-size:17px}.card p{margin:0;color:#91949d;font-size:12px;line-height:1.8}
+.card .open{position:absolute;bottom:15px;left:15px;border:1px solid #343740;background:#181a20;color:#ddd;padding:7px 10px;border-radius:6px;font-size:10px}
+.card.archive{background:linear-gradient(145deg,#15171c,#0f1013)}
+.card.archive:before{content:"";position:absolute;inset:auto -20px -45px auto;width:120px;height:120px;border:1px solid #343740;transform:rotate(25deg)}
+.memoryStrip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.memory{border:1px solid var(--line);background:#101116;border-radius:10px;padding:16px;min-height:145px;cursor:pointer}
+.memory:hover{border-color:#555963}.memory .icon{font-size:25px;margin-bottom:15px}.memory h4{margin:0 0 6px;font-size:13px}.memory p{margin:0;color:#777b84;font-size:10px;line-height:1.7}
+.license{margin-top:18px;border:1px solid #4b4030;background:linear-gradient(120deg,#151310,#0f1012);padding:25px;border-radius:13px;display:grid;grid-template-columns:1fr 1fr;gap:22px;position:relative}
+.license:before{content:"LICENSE / 14.08.2026";position:absolute;left:18px;top:16px;font:8px "DM Mono";color:#806e4d;direction:ltr}
+.license h2{font-size:28px;margin:20px 0 5px}.license .big{font:12px "DM Mono";color:#c8a967;direction:ltr}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}.field{border-top:1px solid #3a362d;padding-top:8px}.field small{display:block;color:#777;font:8px "DM Mono";direction:ltr}.field b{font-size:12px}
+.final{margin-top:20px;border:1px solid #3a3131;background:#0e0e11;border-radius:13px;padding:28px;text-align:center}
+.final .quote{font-size:18px;line-height:2;color:#e7e1d7;max-width:700px;margin:20px auto}
+.btn{border:1px solid #4b4e58;background:#eee7d9;color:#0d0e11;padding:11px 17px;border-radius:7px;font-weight:700}
+.btn.dark{background:#17191e;color:#eee;border-color:#383b44}.btn.red{background:#8f2e32;color:white;border-color:#b94348}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(10px);z-index:60;display:none;align-items:center;justify-content:center;padding:18px}
+.modal{width:min(760px,100%);max-height:88vh;overflow:auto;background:#111318;border:1px solid #3a3d46;border-radius:14px;box-shadow:0 30px 100px #000;padding:24px;direction:rtl}
+.modalHead{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:1px solid var(--line);padding-bottom:15px}
+.modalHead h2{margin:0;font-size:22px}.close{border:1px solid #383b43;background:#181a1f;color:#aaa;width:35px;height:35px;border-radius:7px}
+.modalBody{padding-top:18px;color:#b8bac1;font-size:13px;line-height:2}
+.caseSheet{border:1px solid #42363a;background:#141114;padding:20px;margin:12px 0}.caseSheet h3{color:#efc4c4;margin:0 0 12px}.caseLine{border-top:1px solid #31292c;padding:10px 0}.caseLine b{color:#e8dddd}
+.museum{background:#101014;border:1px solid #36363e;padding:20px;margin:12px 0}.museumTitle{font:18px "DM Mono";direction:ltr;color:#eee;margin-bottom:8px}.exhibit{border-right:2px solid #c5a967;padding:12px 15px;margin:12px 0;background:#15161a}.exhibit small{font:9px "DM Mono";color:#9d8a62;direction:ltr;display:block}
+.chat{background:#0b0c0f;border:1px solid #2c2f36;padding:14px;border-radius:9px;margin:10px 0}.chat b{color:#ddd}.chat span{color:#8c9099}
+.secretBox{display:none;border:1px dashed #71613e;background:#15130f;padding:16px;margin-top:15px;color:#dbc89f}
+.login{position:fixed;inset:0;z-index:100;background:#08090b;display:grid;place-items:center;padding:20px}
+.loginBox{width:min(430px,100%);border:1px solid #33363e;background:#111318;border-radius:14px;padding:28px;box-shadow:0 30px 100px #000}
+.loginBox .logo{font:10px "DM Mono";color:#777;direction:ltr}.loginBox h1{font-size:31px;margin:22px 0 8px}.loginBox p{color:#888;font-size:12px;line-height:1.8}
+.input{width:100%;background:#0b0c0f;border:1px solid #33363d;color:#fff;border-radius:7px;padding:13px;margin:8px 0;outline:none}.input:focus{border-color:#777}
+.err{height:20px;color:#e76a6a;font-size:10px}.success{color:#79d6aa}
+.unlock{margin-top:10px;width:100%}
+.hidden{display:none!important}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:90;background:#eee7d9;color:#111;padding:9px 14px;border-radius:7px;font-size:11px;display:none}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:9px;background:#000}
+@media(max-width:850px){
+ .layout{grid-template-columns:1fr}.side{border:0;border-bottom:1px solid var(--line);padding:12px 10px;position:sticky;top:54px;z-index:15}.side h3,.side .stamp{display:none}.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.nav button{padding:8px 6px;text-align:center}.nav button span{display:none}.nav button b{font-size:10px}
+ .main{padding:15px 12px 60px}.hero{grid-template-columns:1fr;min-height:auto}.heroText{padding:25px}.signal{min-height:320px}.grid{grid-template-columns:1fr 1fr}.memoryStrip{grid-template-columns:1fr 1fr}.license{grid-template-columns:1fr}.sectionTitle{padding-top:45px}
+}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.hero h1{font-size:48px}.memoryStrip{grid-template-columns:1fr 1fr}.license h2{font-size:24px}}
+</style>
+</head>
+<body>
+<div id="grain"></div>
+
+<div id="login" class="login">
+ <div class="loginBox">
+  <div class="logo">PRIVATE ARCHIVE / ACCESS 001</div>
+  <h1>OMAR × NOURHAN</h1>
+  <p>ده مش موقع هدية تقليدي. دي مساحة خاصة فيها الحكاية، الذكريات، والملفات اللي اتعملت ليكي قبل كده — لكن المرة دي كل حاجة موجودة جوه نفس العالم.</p>
+  <input id="pw" class="input" type="password" placeholder="Enter private password" autocomplete="off">
+  <div id="err" class="err"></div>
+  <button class="btn unlock" onclick="checkPassword()">ENTER ARCHIVE</button>
+  <div id="secretGate" class="hidden" style="margin-top:18px">
+   <div style="border-top:1px solid #2b2e36;padding-top:16px;color:#aaa;font-size:11px">One more verification.</div>
+   <p style="margin:8px 0;color:#777">What does Omar call his favorite girl?</p>
+   <input id="secret" class="input" placeholder="Answer..." autocomplete="off">
+   <button class="btn dark unlock" onclick="checkSecret()">VERIFY</button>
+  </div>
+ </div>
+</div>
+
+<header class="top">
+ <div class="brand">OMAR_NOURHAN / PRIVATE ARCHIVE</div>
+ <div class="status"><i class="dot"></i> SYSTEM ONLINE · 14.08.2026</div>
+</header>
+
+<div class="layout">
+<aside class="side">
+ <h3>INDEX / CONTENTS</h3>
+ <div class="nav">
+  <button class="active" onclick="go('home')"><b>الرئيسية</b><span>00 / HOME</span></button>
+  <button onclick="go('origin')"><b>البداية</b><span>01 / ORIGIN</span></button>
+  <button onclick="go('archive')"><b>الأرشيف</b><span>02 / ARCHIVE</span></button>
+  <button onclick="go('license')"><b>الترخيص</b><span>03 / LICENSE</span></button>
+ </div>
+ <div class="stamp">PRIVATE EDITION<br>OMAR × NOURHAN<br>EST. 14 / 08 / 2026<br>VALID: FOREVER ∞</div>
+</aside>
+
+<main class="main" id="main">
+
+<section id="home">
+ <div class="hero">
+  <div class="heroText">
+   <div class="kicker">PRIVATE LOVE ARCHIVE / FILE 001</div>
+   <h1>NOT A GIFT.<br>AN <em>ARCHIVE.</em></h1>
+   <p>مفيش مراحل محفوظة، ولا شريط طاقة، ولا شكل لعبة تقليدي. المرة دي عملنا عالم صغير شبه ملف رقمي خاص — كل ما تفتحيه تلاقي طبقة جديدة من حكايتنا.</p>
+   <div class="meta"><span class="tag">OMAR</span><span class="tag">NOURHAN</span><span class="tag">14 / 08 / 2026</span><span class="tag">FOREVER ∞</span></div>
+  </div>
+  <div class="signal">
+   <div class="signalTop"><span>SUBJECT / TWO PEOPLE</span><span>STATUS: ACTIVE</span></div>
+   <div class="signalCircle"><div class="initials">O×N</div></div>
+   <div class="signalBottom">THE STORY STARTED WITH A PUBG MATCH.<br>THE MATCH ENDED. THE STORY DIDN'T.</div>
+  </div>
+ </div>
+
+ <div class="sectionTitle"><h2>الواجهة الرئيسية</h2><small>SELECT A FILE TO OPEN</small></div>
+ <div class="grid">
+  <article class="card archive"><div class="num">ARCHIVE / 01</div><h3>ملف التحقيق</h3><p>القضية التي انتهت بحكم واحد: مؤبد في حبها.</p><button class="open" onclick="openCase()">OPEN FILE →</button></article>
+  <article class="card archive"><div class="num">ARCHIVE / 02</div><h3>متحف عمر</h3><p>المتحف الخاص الذي اتبنى حوالين شخص واحد.</p><button class="open" onclick="openMuseum()">ENTER MUSEUM →</button></article>
+  <article class="card archive"><div class="num">ARCHIVE / 03</div><h3>صندوق الذكريات</h3><p>أول رسالة، الورد، الشاي والبسكوت، وحاجة صغيرة بحرف O.</p><button class="open" onclick="go('archive')">OPEN BOX →</button></article>
+  <article class="card archive"><div class="num">MEMORY / 04</div><h3>تعالى في حضني</h3><p>جملة صغيرة، بس مكانها كبير جدًا في الحكاية.</p><button class="open" onclick="hug()">ACTIVATE →</button></article>
+  <article class="card archive"><div class="num">FUTURE / 05</div><h3>Coming Soon</h3><p>أول مقابلة حقيقية لسه ما حصلتش. وده مش نقص — دي صفحة لسه مستنية تتكتب.</p><button class="open" onclick="future()">READ STATUS →</button></article>
+  <article class="card archive"><div class="num">AUDIO / 06</div><h3>أحلى رسمة</h3><p>الأغنية اللي هتشتغل جوه العالم ده من غير ما نطلعك منه.</p><button class="open" onclick="song()">OPEN PLAYER →</button></article>
+ </div>
+</section>
+
+<section id="origin">
+ <div class="sectionTitle"><h2>Origin / البداية</h2><small>HOW THIS FILE STARTED</small></div>
+ <div class="license">
+  <div>
+   <div class="big">14 / 08 / 2026</div>
+   <h2>The day "you & me" became "us".</h2>
+   <p style="color:#999;line-height:1.9">بدأت من PUBG. اتنين لاعبين ماكانوش عارفين إن الـ match ده هيبقى بداية حكاية كاملة.</p>
+  </div>
+  <div>
+   <div class="fields">
+    <div class="field"><small>PLAYER 01</small><b>OMAR</b></div>
+    <div class="field"><small>PLAYER 02</small><b>NOURHAN</b></div>
+    <div class="field"><small>FIRST CONTACT</small><b>رسالة + سكرين شوت</b></div>
+    <div class="field"><small>STATUS</small><b style="color:var(--green)">ACTIVE</b></div>
+   </div>
+  </div>
+ </div>
+ <div class="sectionTitle"><h2>أول دليل</h2><small>THE FIRST MESSAGE</small></div>
+ <div class="card" style="min-height:130px"><div class="num">EVIDENCE 001</div><h3>الرسالة الأولى</h3><p>أول رسالة كانت سكرين شوت لنتيجة ثانوية عامة لأخت صاحبتها. حاجة بسيطة جدًا وقتها… لكنها بقت أول سطر في الملف.</p></div>
+</section>
+
+<section id="archive">
+ <div class="sectionTitle"><h2>Archive / الأرشيف</h2><small>OLD WORLDS / NEW HOME</small></div>
+ <div class="memoryStrip">
+  <div class="memory" onclick="memory('first')"><div class="icon">01</div><h4>First Message</h4><p>البداية اللي ماكنتش باينة إنها بداية.</p></div>
+  <div class="memory" onclick="memory('bouquet')"><div class="icon">02</div><h4>البوكيه</h4><p>ورد اتقدم من البلكونة، وذكرى اتعلقت في الملف.</p></div>
+  <div class="memory" onclick="memory('tea')"><div class="icon">03</div><h4>Tea / Cookies</h4><p>بسكوت معمول بإيدها، وشاي كان ليه طعم مختلف.</p></div>
+  <div class="memory" onclick="memory('key')"><div class="icon">04</div><h4>Little O</h4><p>ميدالية ريزن بحرف O.</p></div>
+ </div>
+ <div class="sectionTitle"><h2>Recovered Archives</h2><small>CLICK TO REOPEN</small></div>
+ <div class="grid">
+  <article class="card archive"><div class="num">RECOVERED / CASE</div><h3>قضية حب — CASE:001</h3><p>نسخة تفاعلية من ملف التحقيق القديم، بدل ما يبقى مجرد PDF لا يفتح.</p><button class="open" onclick="openCase()">REOPEN →</button></article>
+  <article class="card archive"><div class="num">RECOVERED / MUSEUM</div><h3>THE OMAR MUSEUM</h3><p>المتحف اتنقل جوه الموقع نفسه، كمعروضات قابلة للفتح.</p><button class="open" onclick="openMuseum()">REOPEN →</button></article>
+  <article class="card archive"><div class="num">RECOVERED / FUTURE</div><h3>EXHIBIT 008 — THE FUTURE</h3><p>Coming Soon. الصفحة اللي لسه مستنية أول مقابلة حقيقية.</p><button class="open" onclick="future()">VIEW →</button></article>
+ </div>
+</section>
+
+<section id="license">
+ <div class="sectionTitle"><h2>Love License</h2><small>FINAL DOCUMENT</small></div>
+ <div class="license">
+  <div>
+   <div class="big">LOVE LICENSE / PRIVATE EDITION</div>
+   <h2>OMAR ♡ NOURHAN</h2>
+   <p style="color:#999">Officially licensed to be loved by Omar.</p>
+  </div>
+  <div>
+   <div class="fields">
+    <div class="field"><small>ISSUED</small><b>14 / 08 / 2026</b></div>
+    <div class="field"><small>VALID</small><b>FOREVER ∞</b></div>
+    <div class="field"><small>LICENSEE</small><b>NOURHAN</b></div>
+    <div class="field"><small>OWNER</small><b>OMAR</b></div>
+   </div>
+  </div>
+ </div>
+ <div class="final">
+  <div class="kicker" style="text-align:center">THE FINAL NOTE</div>
+  <div class="quote">هديه بسيطة جدًا يا روح قلبي، لكن حسيت إننا لازم يبقى معانا license لحبنا مفيش زيها في إيد أي بني آدم غير عمر نورهان… من الآخر نعمل الـversion بتاعنا يا حبيبي إنتِ 🩷</div>
+  <div class="quote" style="font-size:14px;color:#aaa">أتمنى من ربنا يجمعني بيكي يا ست البنات كلهم في بيتنا والمملكة بتاعتنا، ونعيش مبسوطين سوا ونربي دينيز وإيلا سوا يارب.</div>
+  <button class="btn red" onclick="song()">PLAY THE FINAL SONG</button>
+ </div>
+</section>
+</main>
+</div>
+
+<div id="overlay" class="overlay" onclick="if(event.target===this)closeModal()">
+ <div class="modal">
+  <div class="modalHead"><h2 id="modalTitle">Archive</h2><button class="close" onclick="closeModal()">×</button></div>
+  <div id="modalBody" class="modalBody"></div>
+ </div>
+</div>
+<div id="toast"></div>
+
+<script>
+const $=id=>document.getElementById(id);
+function checkPassword(){
+ const v=$('pw').value.trim();
+ if(v==='بنوته عمر'){
+   $('err').textContent='Password accepted. One more thing…';
+   $('err').className='err success';
+   $('secretGate').classList.remove('hidden');
+ }else{
+   $('err').textContent='Hint: the password is what Omar calls his girl.';
+ }
+}
+function checkSecret(){
+ const v=$('secret').value.trim();
+ if(v==='نونو'){
+   $('login').classList.add('hidden');
+   toast('ACCESS GRANTED — welcome, Nono.');
+ }else $('err').textContent='Hint: four Arabic letters. The name you hear from Omar.';
+}
+$('pw').addEventListener('keydown',e=>{if(e.key==='Enter')checkPassword()});
+$('secret').addEventListener('keydown',e=>{if(e.key==='Enter')checkSecret()});
+
+function go(id){
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+ const map={home:0,origin:1,archive:2,license:3};
+ if(map[id]!=null)document.querySelectorAll('.nav button')[map[id]].classList.add('active');
+ document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+}
+function openModal(title,html){$('modalTitle').textContent=title;$('modalBody').innerHTML=html;$('overlay').style.display='flex'}
+function closeModal(){$('overlay').style.display='none'}
+
+function openCase(){
+ openModal('قضية حب — CASE:001',`
+ <div class="caseSheet">
+  <h3>ملف سري للغاية</h3>
+  <div class="caseLine"><b>المحقق المسؤول:</b> عمر</div>
+  <div class="caseLine"><b>نوع القضية:</b> عاطفية</div>
+  <div class="caseLine"><b>المشتبه بها:</b> فتاة واحدة فقط — نورهان</div>
+  <div class="caseLine"><b>سبب الاشتباه:</b> وجود تأثير غير طبيعي على قلب المحقق.</div>
+ </div>
+ <div class="caseSheet">
+  <h3>أدلة القضية</h3>
+  <div class="caseLine">دليل 01 — الصوت والمشاعر.</div>
+  <div class="caseLine">دليل 02 — الاهتمام اليومي.</div>
+  <div class="caseLine">دليل 03 — الدعاء والأمل في اللقاء.</div>
+  <div class="caseLine">دليل 04 — إنها الشخص الذي يغيّر حياة عمر.</div>
+ </div>
+ <div class="caseSheet">
+  <h3>شهادة المحقق</h3>
+  <p>حاول عمر ينكر، ويتصرف طبيعي، ويقنع نفسه إن الموضوع مجرد إعجاب… لكن بعد مراجعة الأدلة ثبت وقوعه في الحب.</p>
+ </div>
+ <div class="caseSheet">
+  <h3>الحكم النهائي</h3>
+  <p style="font-size:18px;color:#efc4c4">مذنب بالوقوع في حبها بعمق.</p>
+  <p>الحكم: <b>مؤبد في حبها.</b><br>ولا يملك حق الإفراج المشروط.</p>
+ </div>
+ <div class="caseSheet">
+  <h3>سبب الحكم</h3>
+  <p>بعد انتهاء التحقيق، المحقق لا يريد الإفراج أصلًا؛ لأن المكان الوحيد الذي يريد أن يبقى فيه للأبد هو قلبها.</p>
+ </div>
+ <div class="caseSheet">
+  <h3>CASE CLOSED</h3>
+  <p>القضية اتقفلت على الورق… لكن عمرها ما هتخلص، لأن كل يوم بيضيف دليل جديد إنه بيحبها أكتر.</p>
+ </div>`);
+}
+function openMuseum(){
+ openModal('THE OMAR MUSEUM',`
+ <div class="museum"><div class="museumTitle">THE OMAR MUSEUM</div><p>متحف خاص مخصص لشخص واحد. Admission: One smile. Visitor: The girl this museum was built for.</p></div>
+ <div class="exhibit"><small>EXHIBIT 001</small><b>THE BEGINNING</b><p>14 • 08 • 2026 — اليوم اللي "you and me" بقى "us".</p></div>
+ <div class="exhibit"><small>EXHIBIT 002</small><b>THE FIRST FEELING</b><p>الإحساس الأول اللي ماكانش محتاج تعريف طويل.</p></div>
+ <div class="exhibit"><small>EXHIBIT 003</small><b>THE MOMENT</b><p>لحظة واحدة، تاريخ واحد، وبداية واحدة.</p></div>
+ <div class="exhibit"><small>EXHIBIT 004</small><b>HER</b><p>صوتها، طريقتها، تفاصيلها… مجموعة تفاصيل دخلت حياة عمر وبقت جزء منها.</p></div>
+ <div class="exhibit"><small>EXHIBIT 005</small><b>THE CHANGE</b><p>Some people don't change your life. They change the way you see it.</p></div>
+ <div class="exhibit"><small>EXHIBIT 007</small><b>THE HEART</b><p>He found his place. مكانها بقى قلب عمر.</p></div>
+ <div class="exhibit"><small>EXHIBIT 008</small><b>THE FUTURE</b><p>COMING SOON — البيت، الحياة، والمواقف اللي لسه ما اتصورتش.</p></div>
+ <div class="exhibit"><small>EXHIBIT 009</small><b>THE LAST PIECE</b><p>RESERVED FOR HER.</p></div>
+ <div class="museum" style="text-align:center"><b>THANK YOU FOR VISITING THE OMAR MUSEUM</b><p>ممكن تخرجي من المتحف… لكن مش هتخرجي من قلبي.</p><small style="font:9px 'DM Mono';color:#777">CURATOR: OMAR · ESTABLISHED: 14.08.2026 · FAVORITE GUEST: NOURHAN · STATUS: PERMANENTLY OPEN</small></div>`);
+}
+function memory(type){
+ const data={
+ first:['FIRST MESSAGE','أول رسالة كانت سكرين شوت لنتيجة ثانوية عامة لأخت صاحبتها.','EVIDENCE 001'],
+ bouquet:['THE BOUQUET','عمر راح يديها بوكيه من البلكونة. لحظة صغيرة، بس اتخزنت في الذاكرة.','MEMORY 002'],
+ tea:['TEA & COOKIES','كانت عاملة بسكوت بإيدها، وعملت شاي يشربه معاها. تفصيلة بسيطة جدًا… بس عمر فاكرها.','MEMORY 003'],
+ key:['LITTLE O','ميدالية ريزن بحرف O — تفصيلة صغيرة جدًا، لكنها تخص عمر بالذات.','MEMORY 004']
+ };
+ const d=data[type];
+ openModal(d[0],`<div class="caseSheet"><div class="kicker">${d[2]}</div><h3>${d[0]}</h3><p>${d[1]}</p></div><div class="chat"><b>ARCHIVE NOTE</b><br><span>مش كل الذكريات محتاجة صورة. بعض الذكريات بتفضل عايشة لأنها اتخزنت جوا صاحبها.</span></div>`);
+}
+function hug(){
+ openModal('FOUND / FAVORITE PLACE',`<div style="text-align:center;padding:35px 10px"><div style="font-size:55px">🫂</div><h2 style="margin:15px 0">تعالى في حضني</h2><p>الجملة دي اتعمل لها مكان خاص هنا.</p><p style="color:#777">Found Omar's favorite place.</p></div>`);
+}
+function future(){
+ openModal('EXHIBIT 008 — THE FUTURE',`<div class="caseSheet" style="text-align:center"><div style="font:28px 'DM Mono';color:#d9b978">COMING SOON</div><h3>FIRST REAL MEETING</h3><p>STATUS: NOT YET</p><p>إحنا لسه ما وقفناش جنب بعض في الحقيقة… وده مش نهاية حاجة. دي صفحة لسه مستنية تتكتب.</p><div style="font-size:35px;margin-top:15px">∞</div></div>`);
+}
+function song(){
+ openModal('FINAL AUDIO / أحلى رسمة',`<p style="margin-bottom:14px">الأغنية الرسمية من قناة فضل شاكر. لو المتصفح منع التشغيل، دوسي Play من داخل الفيديو.</p><iframe src="https://www.youtube.com/embed/VkH3aMIWntw?rel=0" title="Fadel Chaker - Ahla Rasma" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p style="font-size:10px;color:#666;margin-top:10px">Fadel Chaker — Ahla Rasma · Official Artist Channel</p>`);
+}
+function toast(t){$('toast').textContent=t;$('toast').style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>$('toast').style.display='none',2200)}
+</script>
+</body>
+</html>
